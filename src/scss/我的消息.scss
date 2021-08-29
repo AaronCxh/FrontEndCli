@@ -1,0 +1,46 @@
+/* 我的消息 */
+.message-inner{
+  padding: 30px ;
+  .table{
+    width: 100%;
+    th{
+      background: #F5F5F5;
+      padding: 14px 16px;
+    }
+  }
+  .time{
+    text-align: center;
+  }
+  .con{
+    text-align: center;
+  }
+  tbody{
+    td:nth-child(4n+2){
+      text-align: center;
+      color: #999999;
+    }
+    td:nth-child(4n+3){
+      color: #555;
+    }
+    .del{
+      color: #BFBFBF;
+    }
+  }
+  .pagination{
+    margin: 30px 0 0;
+  }
+}
+.message-button-group{
+  margin-bottom: 30px;
+  .del-button{
+    border: 1px solid $borderColor;
+    color: #666;
+    margin-right: 20px;
+    &:hover{
+      background-color: #fff - 20;
+    }
+  }
+  .hasRead-button{
+
+  }
+}

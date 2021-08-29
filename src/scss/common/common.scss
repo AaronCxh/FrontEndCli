@@ -1,0 +1,84 @@
+﻿@import '@/scss/variable/variable.scss';
+@import '@/scss/minxi/minxi.scss';
+
+button:after {
+  border-color: transparent;
+}
+
+.fixed-bottom {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.button {
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  border: 1px solid transparent;
+  font-weight: 500;
+  white-space: nowrap;
+  background-color: #fff;
+  box-sizing: border-box;
+  text-align: center;
+  width: auto;
+  border-radius: 0;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+.button-block {
+  width: 100%;
+  display: block;
+}
+
+.button-normal {
+  background: $bodycolor !important;
+  color: #fff !important;
+  border-color: $bodycolor !important;
+  &:active {
+    background: darken($color: $bodycolor, $amount: 10) !important;
+    color: #fff !important;
+    border-color: darken($color: $bodycolor, $amount: 10) !important;
+  }
+}
+.button-normal-reverse {
+  background: #fff !important;
+  color: $bodycolor !important;
+  border-color: $bodycolor !important;
+}
+.button-warn {
+  background: #fa811b;
+  color: #fff;
+  border-color: #fa811b;
+}
+.button-warn-reverse {
+  background: #fff;
+  color: #fa811b;
+  border-color: #fa811b;
+}
+.button-cancel {
+  border-color: #c3c3c3;
+  color: #444;
+}
+.button-danger {
+  background: #e93b3d;
+  color: #fff;
+  border-color: #e93b3d;
+}
+.button-disabled {
+  background-color: #eee;
+  color: #afafaf;
+}
+.flex-box {
+  display: flex;
+}
+
+.text-right, .el-dropdown-menu__item {
+  text-align: right;
+}

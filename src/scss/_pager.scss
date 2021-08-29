@@ -1,0 +1,52 @@
+.paging {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 30px;
+
+  a {
+    display: inline-block;
+    color: #666666;
+    height: 33px;
+    line-height: 33px;
+    display: none;
+    background: #fff;
+    padding: 0 12px;
+    border-color: #DDDDDD;
+
+    &.active {
+      color: $bodycolor;
+      border-color: $bodycolor;
+    }
+
+    &:hover {
+      color: $bodycolor;
+      border-color: $bodycolor;
+    }
+
+    &:first-child {
+      display: block;
+    }
+
+    &:last-child {
+      display: block;
+    }
+
+    &.disabled {
+      background: #F2F2F2;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .paging {
+
+    a {
+      display: block;
+      margin: 0 5px;
+    }
+    justify-content: center;
+  }
+}

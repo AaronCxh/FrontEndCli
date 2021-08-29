@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceType": "module"
+  },
+  "extends": ["plugin:vue/recommended", "standard"],
+  "rules": {
+    "space-before-function-paren": "off",
+    "comma-dangle": "off",
+    "no-new": 0,
+    "vue/singleline-html-element-content-newline": "off"
+  }
+}

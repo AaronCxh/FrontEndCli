@@ -1,0 +1,49 @@
+.assets-inner{
+  padding: 30px;
+  .assets-header{
+    margin-bottom: 60px;
+    overflow: hidden;
+    .assets-infos{
+      float: left;
+      h4{
+        font-size: 24px;
+        font-weight: 400;
+      }
+      .price{
+        font-weight: 700;
+        font-size: 24px;
+        font-family: Tahoma;
+        line-height: 1.2;
+        .td1-p-num{
+          font-size: 50px;
+        }
+      }
+    }
+    .assets-button-group{
+      float: right;
+      margin-top: 20px;
+      .button{
+        padding: 10px 50px;
+      }
+      .pick_button{
+        border:1px solid #D2D2D2;
+        color: #666;
+        margin-left: 30px;
+        &:hover{
+          background-color: #fff - 20 ;
+        }
+      }
+    }
+  }
+  .assets-body{
+    th,td{
+      text-align: center;
+    }
+    .del{
+      color: #BFBFBF;
+    }
+  }
+  .pagination{
+    margin: 74px 0 0;
+  }
+}
