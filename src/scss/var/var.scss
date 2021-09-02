@@ -1,8 +1,10 @@
-﻿$bodycolor: #6ebd58; //#00a4ff;
-$borderColor: #E5E5E5;
+﻿$color-default: '';
+$color-success: '';
+$color-fail: '';
+$color-warn: '';
 
 
-$Calibri : 'Calibri';
-
-$TimesNewRoman : "Times New Roman";
+$element-separator: '__';
+$modifier-separator: '--';
+$state-prefix: 'is-';
 
