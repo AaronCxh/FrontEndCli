@@ -1,5 +1,5 @@
-﻿@import '@/scss/variable/variable.scss';
-@import '@/scss/minxi/minxi.scss';
+﻿@import '@/scss/var/var.scss';
+@import '@/scss/mixins/mixins.scss';
 
 button:after {
   border-color: transparent;
@@ -38,19 +38,19 @@ button:after {
 }
 
 .button-normal {
-  background: $bodycolor !important;
+  background: $color-default !important;
   color: #fff !important;
-  border-color: $bodycolor !important;
+  border-color: $color-default !important;
   &:active {
-    background: darken($color: $bodycolor, $amount: 10) !important;
+    background: darken($color: $color-default, $amount: 10) !important;
     color: #fff !important;
-    border-color: darken($color: $bodycolor, $amount: 10) !important;
+    border-color: darken($color: $color-default, $amount: 10) !important;
   }
 }
 .button-normal-reverse {
   background: #fff !important;
-  color: $bodycolor !important;
-  border-color: $bodycolor !important;
+  color: $color-default !important;
+  border-color: $color-default !important;
 }
 .button-warn {
   background: #fa811b;

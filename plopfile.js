@@ -1,44 +1,13 @@
 module.exports = function (plop) {
   // create your generators here
   plop.setGenerator('page', {
-    description: 'generate a page',
+    description: '生成页面',
     prompts: [
       {
         type: 'input',
         name: 'name',
-        message: 'page name please',
+        message: '页面名称',
       },
-      // {
-      //   type: 'checkbox',
-      //   name: 'blocks',
-      //   message: 'Blocks:',
-      //   choices: [
-      //     {
-      //       name: '<template>',
-      //       value: 'template',
-      //       checked: true,
-      //     },
-      //     {
-      //       name: '<script>',
-      //       value: 'js',
-      //       checked: true,
-      //     },
-      //     {
-      //       name: 'style',
-      //       value: 'scss',
-      //       checked: true,
-      //     },
-      //   ],
-      //   validate(value) {
-      //     if (
-      //       value.indexOf('script') === -1 &&
-      //       value.indexOf('template') === -1
-      //     ) {
-      //       return 'View require at least a <script> or <template> tag.'
-      //     }
-      //     return true
-      //   },
-      // },
     ], // array of inquirer prompts
     actions: (data) => {
       const name = '{{ name }}'

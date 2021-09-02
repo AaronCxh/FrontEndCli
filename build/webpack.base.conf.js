@@ -16,12 +16,14 @@ const createLintingRule = () => ({
   },
 })
 
+const isProduction = process.env.NODE_ENV === 'production'
+const sourceMapEnabled = isProduction
 module.exports = {
   mode: config.env.NODE_ENV === '"development"' ? 'development' : 'production',
   context: path.resolve(__dirname, '../'),
   // entry: utils.createEntryPage(),
   entry: {
-    app: './src/main.js',
+    app: './src/app.js',
   },
   output: {
     path: config.outputRoot,
@@ -31,12 +33,12 @@ module.exports = {
   },
   externals: {
     jquery: 'jQuery',
+    vue: 'Vue'
   },
   resolve: {
     extensions: ['.js', '.json'],
     alias: {
-      '@/utils': resolve('src/utils'),
-      '@/scss': resolve('src/scss'),
+      '@': resolve('src'),
       vue$: 'vue/dist/vue.esm.js',
     },
   },
@@ -48,6 +50,24 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: utils.cssLoaders({
+            sourceMap: sourceMapEnabled,
+            extract: isProduction,
+          }),
+          cssSourceMap: sourceMapEnabled,
+          cacheBusting: true,
+          transformToRequire: {
+            video: ['src', 'poster'],
+            source: 'src',
+            img: 'src',
+            image: 'xlink:href',
+          },
         },
       },
       {
@@ -111,7 +131,7 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
-        ignore: ['.*'],
+        ignore: ['js/jquery-1.11.0.js'],
       },
     ]),
   ],
