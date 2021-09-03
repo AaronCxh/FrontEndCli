@@ -3,5 +3,10 @@
     "title": "index",
     "chunk": "index",
     "url": "pages/index/index"
+  },
+  {
+    "title": "test",
+    "chunk": "test",
+    "url": "pages/test/index"
   }
 ]
