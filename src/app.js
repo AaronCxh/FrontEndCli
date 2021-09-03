@@ -8,7 +8,7 @@ Vue.prototype.$ELEMENT = { size: 'small' }
 
 Vue.use(Button)
 
-new Vue({
+export default new Vue({
   el: '#app',
   data() {
     return {}

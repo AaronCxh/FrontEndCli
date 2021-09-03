@@ -61,7 +61,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     /**
      * @return Array<HtmlTemplatePlugin>
      */
-    ...utils.createHtmlTemplate(),
+    // ...utils.createHtmlTemplate(),
   ],
 })
 

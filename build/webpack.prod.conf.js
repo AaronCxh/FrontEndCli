@@ -30,7 +30,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': config.env,
     }),
-
     // extract css into its own file
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
@@ -38,46 +37,31 @@ const webpackConfig = merge(baseWebpackConfig, {
       // filename: 'css/main.[chunkhash].css',
     }),
 
-    /**
-     * @return Array<HtmlWebpackPlugin>
-     */
-    ...utils.createHtmlTemplate({
-      minify: false,
-    }),
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
-
-    // copy custom static assets
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, '../static'),
-    //     ignore: ['.*'],
-    //   },
-    // ]),
   ],
   optimization: {
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
-        // styles: {
-        //   name: 'styles',
-        //   test: /scss|css$/,
-        //   chunks: 'all',
-        //   enforce: true,
-        // },
-        vendor: {
+        libs: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
+          name: 'chunk-libs',
+          priority: 10,
+          chunks: 'initial', // only package third parties that are initially dependent
         },
-        common: {
-          // test: (module, chunks) => {
-          //   return /[\\/]src[\\/].*\.js/.test(module.nameForCondition())
-          // },
-          name: 'common',
-          minChunks: 2,
-          chunks: 'initial',
+        elementUI: {
+          name: 'chunk-elementUI', // split elementUI into a single package
+          priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+          test: /[\\/]node_modules[\\/]_?element-ui(.*)/, // in order to adapt to cnpm
+        },
+        app: {
+          test: /app(.*)/,
+          name: 'app',
+          priority: 50, // 最高权重
+          minSize: 100, // 8000 bytes
         },
       },
     },

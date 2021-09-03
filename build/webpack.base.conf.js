@@ -21,10 +21,10 @@ const sourceMapEnabled = isProduction
 module.exports = {
   mode: config.env.NODE_ENV === '"development"' ? 'development' : 'production',
   context: path.resolve(__dirname, '../'),
-  // entry: utils.createEntryPage(),
-  entry: {
-    app: './src/app.js',
-  },
+  entry: utils.createEntryPage(),
+  // entry: {
+  //   app: './src/app.js',
+  // },
   output: {
     path: config.outputRoot,
     filename: 'js/[name].bundle.js',
@@ -33,7 +33,7 @@ module.exports = {
   },
   externals: {
     jquery: 'jQuery',
-    vue: 'Vue'
+    vue: 'Vue',
   },
   resolve: {
     extensions: ['.js', '.json'],
@@ -134,5 +134,8 @@ module.exports = {
         ignore: ['js/jquery-1.11.0.js'],
       },
     ]),
+    ...utils.createHtmlTemplate({
+      minify: false,
+    }),
   ],
 }

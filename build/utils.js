@@ -124,7 +124,7 @@ exports.createHtmlTemplate = (options = {}) => {
           title: page.title,
           template: path.resolve(__dirname, '..', 'src/', page.url) + '.html',
           inject: true,
-          excludeChunks: ['styles'],
+          chunks: [page.chunk],
         },
         options
       )
