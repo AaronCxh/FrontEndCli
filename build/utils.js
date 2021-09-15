@@ -108,7 +108,10 @@ exports.createNotifierCallback = () => {
 exports.createEntryPage = () => {
   const entries = {}
   pages.forEach((page) => {
-    entries[page.chunk] = path.resolve(__dirname, '..', 'src/', page.url)
+    entries[page.chunk] =
+      page.chunk !== 'app'
+        ? path.resolve(__dirname, '..', 'src/', page.url)
+        : path.resolve('src/app')
   })
   return entries
 }
